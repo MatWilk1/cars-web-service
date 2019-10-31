@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+	<title>Cars web service - home page</title>
+</head>
+
+<body>
+
+<h1>Cars web service - home page</h1>
+
+<hr>
+
+<p>
+	Welcome on Cars web service
+</p>
+
+<div>																
+	<div th:if="${session.user}" >
+		<p th:text="'Hello ' + ${session.user.firstName} + ' ' + ${session.user.lastName}"></p>
+	</div>	
+	
+	<a th:href="@{/admins/adminPanel}">For admins only.</a>
+	<br><br>
+		
+</div>
+
+<hr>
+
+
+
+<form th:action="@{/showMyLoginPage}" method="GET">
+		<input type="submit" value="Login" />
+</form>	
+
+<br>
+
+<form th:action="@{/logout}" method="POST">
+		<input type="submit" value="Logout" />
+</form>	
+
+</body>
+
+</html>
+
+
